@@ -1,10 +1,9 @@
 import React from "react";
 import { FaBars, FaCartPlus } from "react-icons/fa";
 import styled from "styled-components";
-import { ProdctConsumer, ProductConsumer } from "../context";
+import { ProductConsumer } from "../context";
 import logo from "../images/logo.svg";
-
-const Navbar = () => {
+export default function Navbar() {
   return (
     <ProductConsumer>
       {value => {
@@ -13,7 +12,7 @@ const Navbar = () => {
           <NavWrapper>
             <div className="nav-center">
               <FaBars className="nav-icon" onClick={handleSidebar} />
-              <img src={logo} alt="tech warehouse logo" />
+              <img src={logo} alt="tech store logo" />
               <div className="nav-cart">
                 <FaCartPlus className="nav-icon" onClick={handleCart} />
                 <div className="cart-items">{cartItems}</div>
@@ -24,7 +23,7 @@ const Navbar = () => {
       }}
     </ProductConsumer>
   );
-};
+}
 
 const NavWrapper = styled.nav`
   position: -webkit-sticky;
@@ -59,5 +58,3 @@ const NavWrapper = styled.nav`
     border-radius: 50%;
   }
 `;
-
-export default Navbar;
